@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*sheard font */
-*{
+* {
     font-family: "Raleway", sans-serif;
 }
 
@@ -21,4 +21,41 @@
     flex-shrink: 0;
     border-radius: 24px;
     background: #FFBF0F;
+}
+
+
+
+.sit-couch {
+    width: 180px;
+    height: 56px;
+    flex-shrink: 0;
+    padding: 17px;
+    gap: 10px;
+    border-radius: 12px;
+    background: rgba(29, 209, 0, 0.15);
+    font-size: 18px;
+    font-weight: 500;
+    color: #1DD100;
+    font-style: normal;
+}
+
+/* .destanation-container */
+
+.destanation-container {
+    width: 808px;
+    height: 258px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    background: #F7F8F8;
+}
+
+/* boarding-dropping */
+
+.boarding-dropping {
+    width: 232px;
+    height: 56px;
+    border-radius: 12px;
+    background: rgba(3, 7, 18, 0.05);
+    padding: 17px;
+
 }
