@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Increment and Decrement</title>
+</head>
+<body>
+  <p>Number to decrement: <span id="decrementNumber">10</span></p>
+  <p>Number to increment: <span id="incrementNumber">0</span></p>
+  <button id="changeNumbersButton">Change Numbers</button>
+
+  <script>
+    document.addEventListener('click', function() {
+      const decrementNumberElement = document.getElementById('decrementNumber');
+      const incrementNumberElement = document.getElementById('incrementNumber');
+      const changeNumbersButton = document.getElementById('changeNumbersButton');
+
+      // Function to decrement and increment numbers
+      function changeNumbers() {
+        // Decrement the number from decrementNumberElement
+        let currentDecrementNumber = parseInt(decrementNumberElement.textContent);
+        currentDecrementNumber--;
+        decrementNumberElement.textContent = currentDecrementNumber;
+
+        // Increment the number from incrementNumberElement
+        let currentIncrementNumber = parseInt(incrementNumberElement.textContent);
+        currentIncrementNumber++;
+        incrementNumberElement.textContent = currentIncrementNumber;
+      }
+
+      // Add event listener to the button
+      changeNumbersButton.addEventListener('click', changeNumbers);
+    });
+  </script>
+</body>
+</html>

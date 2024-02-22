@@ -59,3 +59,12 @@
     padding: 17px;
 
 }
+
+
+.primary-font {
+    color: var(--base-black, #030712);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+}

@@ -62,10 +62,11 @@
                             <p class="py-6 text-xl text-white ">Yes, you can run unit tests and view the results
                                 directly
                                 within the app.<br>The integrated testing features allow for a streamlined .</p>
-                            <button onclick="getTheButton()"  class="btn btn-primary border-0 text-black font-bold text-xl bg-[#1DD100]">Buy
+                            <button onclick="getTheButton()"
+                                class="btn btn-primary border-0 text-black font-bold text-xl bg-[#1DD100]">Buy
                                 Tickets</button>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
@@ -290,7 +291,7 @@
                             <div>
                                 <div class="flex gap-3">
                                     <img src="images/seat-green-filled.png" alt="">
-                                    <p>Seclact</p>
+                                    <p> <span id="decrementNumber">40</span> Seclact</p>
                                 </div>
 
                             </div>
@@ -315,8 +316,8 @@
 
                                 <div class=" items-center flex gap-8 ">
                                     <p>A</p>
-                                    <button id="a1" class="btn w-[110px] bg-gray-400">A1</button>
-                                    <button id="a2" class="btn w-[110px] bg-gray-400">A2</button>
+                                    <button onclick="changeNumbers()" id="changeNumbersButton" class="btn w-[110px] bg-gray-400">A1</button>
+                                    <button onclick="changeNumbers()"  id="changeNumbersButton" class="btn w-[110px] bg-gray-400">A2</button>
 
                                 </div>
                                 <div class=" items-center flex gap-8">
@@ -355,7 +356,11 @@
 
                 <!-- hr line start -->
                 <div class="mx-16">
-                    <img src="images/Line 3.svg" alt="">
+                    <!-- <img src="images/Line 3.svg" alt=""> -->
+                    <svg width="2" height="992" viewBox="0 0 2 992" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1" y1="-4.37114e-08" x2="1.00004" y2="992" stroke="#030712" stroke-opacity="0.3"
+                            stroke-width="2" stroke-dasharray="5 5" />
+                    </svg>
                 </div>
                 <!-- hr line end-->
 
@@ -371,6 +376,50 @@
                     </div>
 
                     <!-- seat class price start-->
+                    <div class="bg-[#F7F8F8] rounded-2xl mt-6">
+                        <div class="p-8 space-y-4">
+                            <!-- seat class price -->
+                            <div class="flex text-lg font-medium justify-between  primary-font">
+                                <h4>Seat <span id="incrementNumber">0</span></h4>
+                                <h4>Class</h4>
+                                <h4>Price</h4>
+
+                            </div>
+                            <hr>
+
+                            <!-- economi section -->
+                            <div>
+                                <span class="flex gap-x-28 justify-evenly">
+                                    <p><span>C2</span></p>
+                                    <p>Economoy</p>
+                                    <p>550</p>
+                                </span>
+                            </div>
+                            <hr>
+                            <div class="flex justify-between primary-font">
+                                <h4>Total Price</h4>
+                                <h4>Btd <span>1100</span></h4>
+                            </div>
+
+                            <!-- input-apply-btn -->
+                            <div class="">
+                                <label class="input input-bordered flex items-center gap-2">
+                                    <input type="text" class=" h-14  grow" placeholder="Have any copupon?" />
+                                    <!-- <span class="badge badge-info">Optional</span> -->
+                                    <button class="btn bg-[#1DD100] text-white mt-3  mb-3">Apply</button>
+                                </label>
+                            </div>
+
+                            <!-- grand-total -->
+                            <div class="flex justify-between primary-font">
+                                <h4>Grand Total</h4>
+                                <h4>Btd <span>1100</span></h4>
+                            </div>
+
+
+                        </div>
+
+                    </div>
 
 
 
@@ -384,8 +433,8 @@
                     <!-- seat class price end-->
 
                     <!-- input section email mobile start -->
-                    <div class="space-y-3">
-                        <div class="space-y-3">
+                    <div class="space-y-3 mt-5">
+                        <div class="space-y-5">
                             <h3 class="font-semibold text-xl">Passenger Name*</h3>
                             <input type="text" placeholder="Passenger Name" class="  input input-bordered w-[450px] " />
                         </div>
@@ -400,9 +449,21 @@
 
 
                         <button id="next-button"
-                            class="btn w-[450px] bg-[#1DD100] text-white space-y-4 font-bold text-xl"></button>
+                            class="btn w-[450px] bg-[#1DD100] text-white h-16 font-bold text-xl">Next</button>
                     </div>
                     <!-- input section email mobile end -->
+                    <!-- trems and condition -->
+                    <div class="flex justify-evenly mt-7">
+                        <div class="text-[#03071299]">
+                            <p>Terms and Conditions</p>
+                            <hr>
+                        </div>
+                        <div class="text-[#03071299]">
+                            <p>Cancellation Policy</p>
+                            <hr>
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -473,6 +534,30 @@
 
 
     <script src="Scripts/connection.js "></script>
+
+    <script>
+        document.addEventListener('click', function() {
+          const decrementNumberElement = document.getElementById('decrementNumber');
+          const incrementNumberElement = document.getElementById('incrementNumber');
+          const changeNumbersButton = document.getElementById('changeNumbersButton');
+    
+          // Function to decrement and increment numbers
+          function changeNumbers() {
+            // Decrement the number from decrementNumberElement
+            let currentDecrementNumber = parseInt(decrementNumberElement.textContent);
+            currentDecrementNumber--;
+            decrementNumberElement.textContent = currentDecrementNumber;
+    
+            // Increment the number from incrementNumberElement
+            let currentIncrementNumber = parseInt(incrementNumberElement.textContent);
+            currentIncrementNumber++;
+            incrementNumberElement.textContent = currentIncrementNumber;
+          }
+    
+          // Add event listener to the button
+          changeNumbersButton.addEventListener('click', changeNumbers);
+        });
+      </script>
 
 </body>
 
