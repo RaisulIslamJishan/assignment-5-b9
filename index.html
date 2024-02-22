@@ -62,12 +62,13 @@
                             <p class="py-6 text-xl text-white ">Yes, you can run unit tests and view the results
                                 directly
                                 within the app.<br>The integrated testing features allow for a streamlined .</p>
-                            <button class="btn btn-primary border-0 text-black font-bold text-xl bg-[#1DD100]"><a href="#sellsection">Buy Tickets</a></button>
+                            <button class="btn btn-primary border-0 text-black font-bold text-xl bg-[#1DD100]"><a
+                                    href="#sellsection">Buy Tickets</a></button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- poribohon card section -->
             <div class=" flex justify-evenly  -mt-16">
                 <!-- Registered users -->
@@ -175,19 +176,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- tecate sell section start -->
         <section id="sellsection" class="w-full bg-[#F7F8F8] rounded-t-3xl border-t-2 border-[#1DD100] mt-12">
 
@@ -216,7 +204,7 @@
                             </div>
                             <div class="sit-couch flex">
                                 <img src="images/seat-green.png" alt="">
-                                <h3>40 Seats left</h3>
+                                <h3>8 Seats left</h3>
 
                             </div>
                         </div>
@@ -289,7 +277,7 @@
                             <div>
                                 <div class="flex gap-3">
                                     <img src="images/seat-green-filled.png" alt="">
-                                    <p> <span id="decrementNumber">40</span> Seclact</p>
+                                    <p> <span id="submitBtn"></span> Seclact</p>
                                 </div>
 
                             </div>
@@ -314,9 +302,9 @@
 
                                 <div class=" items-center flex gap-8 ">
                                     <p>A</p>
-                                    <button onclick="changeNumbers()" id="changeNumbersButton"
+                                    <button onclick="calculateTotalPrice(selectedSeats)" id="submitBtn"
                                         class="btn w-[110px] bg-gray-400">A1</button>
-                                    <button onclick="changeNumbers()" id="changeNumbersButton"
+                                    <button onclick="calculateTotalPrice(selectedSeats)" id="submitBtn"
                                         class="btn w-[110px] bg-gray-400">A2</button>
 
                                 </div>
@@ -342,13 +330,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
 
                 </div>
                 <!-- button and seat confirmation end -->
@@ -380,15 +361,19 @@
                         <div class="p-8 space-y-4">
                             <!-- seat class price -->
                             <div class="flex text-lg font-medium justify-between  primary-font">
-                                <h4>Seat <span id="incrementNumber">0</span></h4>
+                                <!-- <h4>Seat <span id="submitBtn">0</span></h4> -->
+
+                                <div id="seatCountDisplay">Seats: <span id="submitBtn">0</span></div>
+
                                 <h4>Class</h4>
+
                                 <h4>Price</h4>
 
                             </div>
                             <hr>
 
                             <!-- economi section -->
-                            <div>
+                            <div id>
                                 <span class="flex gap-x-28 justify-evenly">
                                     <p><span>C2</span></p>
                                     <p>Economoy</p>
@@ -398,15 +383,17 @@
                             <hr>
                             <div class="flex justify-between primary-font">
                                 <h4>Total Price</h4>
-                                <h4>Btd <span>1100</span></h4>
+                                <h4>Btd <span id="submitBtn">1100</span></h4>
                             </div>
 
                             <!-- input-apply-btn -->
                             <div class="">
                                 <label class="input input-bordered flex items-center gap-2">
-                                    <input type="text" class=" h-14  grow" placeholder="Have any copupon?" />
+                                    <input id="coupon-input" type="text" class=" h-14  grow"
+                                        placeholder="Have any copupon?" />
                                     <!-- <span class="badge badge-info">Optional</span> -->
-                                    <button class="btn bg-[#1DD100] text-white mt-3  mb-3">Apply</button>
+                                    <button id="coupon-button"
+                                        class="btn bg-[#1DD100] text-white mt-3  mb-3">Apply</button>
                                 </label>
                             </div>
 
@@ -420,14 +407,6 @@
                         </div>
 
                     </div>
-
-
-
-
-
-
-
-
 
 
                     <!-- seat class price end-->
@@ -450,22 +429,23 @@
 
                         <!-- <button id="next-button"
                             class="btn w-[450px] bg-[#1DD100] text-white h-16 font-bold text-xl">Next</button> -->
-                            <button class="btn w-[450px] bg-[#1DD100] text-white h-16 font-bold text-xl" onclick="my_modal_1.showModal()">Nest</button>
-                            <dialog id="my_modal_1" class=" modal justify-center items-center">
-                                <div class="modal-box space-y-5">
-                                    <img class="justify-center items-center pl-40" src="images/success.png" alt="">
-                                        <h1 class="text-[#27AE60] font-bold text-2xl pl-40">SUCCESS</h1>
-                                    <h3 class="font-bold text-lg text-center">Thank you for Booking Our Bus Seats. <br>
-                                        We are working hard to find the best service and deals for you</h3>
-                                    <p class="pl-9">Shortly you will find a confirmation in your email.</p>
-                                    <div class="modal-action justify-center items-center">
-                                        <form method="dialog ">
-                                            <!-- if there is a button in form, it will close the modal -->
-                                            <button class="btn  bg-[#27AE60] rounded-3xl px-8 text-white">Continue</button>
-                                        </form>
-                                    </div>
+                        <button class="btn w-[450px] bg-[#1DD100] text-white h-16 font-bold text-xl"
+                            onclick="my_modal_1.showModal()">Nest</button>
+                        <dialog id="my_modal_1" class=" modal justify-center items-center">
+                            <div class="modal-box space-y-5">
+                                <img class="justify-center items-center pl-40" src="images/success.png" alt="">
+                                <h1 class="text-[#27AE60] font-bold text-2xl pl-40">SUCCESS</h1>
+                                <h3 class="font-bold text-lg text-center">Thank you for Booking Our Bus Seats. <br>
+                                    We are working hard to find the best service and deals for you</h3>
+                                <p class="pl-9">Shortly you will find a confirmation in your email.</p>
+                                <div class="modal-action justify-center items-center">
+                                    <form method="dialog ">
+                                        <!-- if there is a button in form, it will close the modal -->
+                                        <button class="btn  bg-[#27AE60] rounded-3xl px-8 text-white">Continue</button>
+                                    </form>
                                 </div>
-                            </dialog>
+                            </div>
+                        </dialog>
                     </div>
                     <!-- input section email mobile end -->
                     <!-- trems and condition -->
@@ -552,26 +532,74 @@
     <script src="Scripts/connection.js "></script>
 
     <script>
-        document.addEventListener('click', function () {
-            const decrementNumberElement = document.getElementById('decrementNumber');
-            const incrementNumberElement = document.getElementById('incrementNumber');
-            const changeNumbersButton = document.getElementById('changeNumbersButton');
+        // document.addEventListener('click', function () {
+        //     const decrementNumberElement = document.getElementById('decrementNumber');
+        //     const incrementNumberElement = document.getElementById('incrementNumber');
+        //     const changeNumbersButton = document.getElementById('changeNumbersButton');
 
-            // Function to decrement and increment numbers
-            function changeNumbers() {
-                // Decrement the number from decrementNumberElement
-                let currentDecrementNumber = parseInt(decrementNumberElement.textContent);
-                currentDecrementNumber--;
-                decrementNumberElement.textContent = currentDecrementNumber;
+        //     // Function to decrement and increment numbers
+        //     function changeNumbers() {
+        //         // Decrement the number from decrementNumberElement
+        //         let currentDecrementNumber = parseInt(decrementNumberElement.textContent);
+        //         currentDecrementNumber--;
+        //         decrementNumberElement.textContent = currentDecrementNumber;
 
-                // Increment the number from incrementNumberElement
-                let currentIncrementNumber = parseInt(incrementNumberElement.textContent);
-                currentIncrementNumber++;
-                incrementNumberElement.textContent = currentIncrementNumber;
+        //         // Increment the number from incrementNumberElement
+        //         let currentIncrementNumber = parseInt(incrementNumberElement.textContent);
+        //         currentIncrementNumber++;
+        //         incrementNumberElement.textContent = currentIncrementNumber;
+        //     }
+
+        //     // Add event listener to the button
+        //     changeNumbersButton.addEventListener('click', changeNumbers);
+        // });
+        // document.getElementById('submitBtn').addEventListener('click', function () {
+
+        // })
+
+
+
+
+
+
+        // const seatPrice = 550;
+
+        // function calculateTotalPrice(selectedSeats) {
+        //     let totalSeats = selectedSeats.length;
+        //     let totalPrice = totalSeats * seatPrice;
+
+        //     if (totalSeats === 8) {
+        //         document.getElementById("submitBtn").style.backgroundColor = "green";
+        //         document.getElementById("submitBtn").style.color = "white";
+        //         totalSeats -= 1; 
+        //     } else if (totalSeats === 4) {
+        //         for (let i = 0; i < selectedSeats.length; i++) {
+        //             document.getElementById(selectedSeats[i]).disabled = true; // 
+        //         }
+        //     }
+
+        //     for (let i = 0; i < selectedSeats.length; i++) {
+        //         document.getElementById(selectedSeats[i]).innerText = `Seat ${selectedSeats[i]} - $${seatPrice}`;
+        //     }
+
+        //     return totalPrice;
+        // }
+        // const sitCounting = document.getElementById('submitbtn');
+        // const sitCounting2 = document.querySelectorAll(".btn");
+        // for(let i = 0; i<)
+        const couponButton = document.getElementById("coupon-button");
+
+        couponButton.addEventListener('click', function () {
+            let couponInput = document.getElementById("coupon-input").value.touppercase();
+
+            if (couponInput === "NEW15" || couponInput === "COUPLE20") {
+                document.getElementById("coupon-input").classList.add('hidden');
+
+            }
+            else {
+                alert("Invalid coupon")
             }
 
-            // Add event listener to the button
-            changeNumbersButton.addEventListener('click', changeNumbers);
         });
     </script>
 
